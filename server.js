@@ -14,6 +14,9 @@ const __dirname = path.dirname(__filename);
 const diseasesPath = path.join(__dirname, "data", "diseases.json");
 let diseases = JSON.parse(fs.readFileSync(diseasesPath, "utf-8"));
 
+// UI for this server for easy fetching and understanding the repsonse of API
+app.use(express.static("public"));
+
 // Route: GET /disease?name=...
 app.get("/disease", (req, res) => {
   const name = req.query.name?.toLowerCase();

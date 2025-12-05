@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease API Console</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #f3f4f6;
+      --card-bg: #ffffff;
+      --primary: #2563eb; /* Royal Blue */
+      --primary-hover: #1d4ed8;
+      --success: #10b981;
+      --error: #ef4444;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --code-bg: #1e293b; /* Slate 800 */
+      --code-text: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .badge {
+      background: #dbeafe;
+      color: var(--primary);
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Main Interface */
+    .console-container {
+      width: 100%;
+      max-width: 900px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 10px -3px rgba(0, 0, 0, 0.02);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* Request Section */
+    .request-section {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .input-group {
+      display: flex;
+      gap: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .input-group:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .method-badge {
+      background: #f0fdf4;
+      color: var(--success);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 20px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      user-select: none;
+    }
+
+    .url-prefix {
+      background: #f9fafb;
+      color: var(--text-muted);
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: 'Fira Code', monospace;
+      outline: none;
+      color: var(--text-main);
+    }
+
+    input::placeholder {
+      color: #9ca3af;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .send-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 24px;
+      font-weight: 600;
+      cursor: pointer;
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .send-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .send-btn:disabled {
+      background: #93c5fd;
+      cursor: not-allowed;
+    }
+
+    /* Response Section */
+    .response-section {
+      background: #f8fafc;
+      min-height: 200px;
+    }
+
+    .response-header {
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d1d5db; /* Grey by default */
+    }
+
+    .status-dot.success { background: var(--success); box-shadow: 0 0 0 3px #d1fae5; }
+    .status-dot.error { background: var(--error); box-shadow: 0 0 0 3px #fee2e2; }
+
+    .meta-info {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 15px;
+    }
+
+    .action-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    .copy-btn:hover { opacity: 1; text-decoration: underline; }
+
+    .code-window {
+      background: var(--code-bg);
+      padding: 20px 24px;
+      overflow-x: auto;
+      margin: 0;
+      min-height: 250px;
+    }
+
+    pre {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      color: var(--code-text);
+      line-height: 1.6;
+    }
+
+    /* JSON Syntax Highlighting */
+    .key { color: #93c5fd; } /* Light Blue */
+    .string { color: #86efac; } /* Light Green */
+    .number { color: #fca5a5; } /* Light Red */
+    .boolean { color: #fcd34d; } /* Amber */
+    .null { color: #d1d5db; } /* Grey */
+
+    /* Empty State */
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 250px;
+      color: #94a3b8;
+    }
+    .empty-state svg { width: 48px; height: 48px; margin-bottom: 10px; opacity: 0.5; }
+
+    /* Loader */
+    .loader {
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top: 2px solid #fff;
+      width: 16px;
+      height: 16px;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div style="background:var(--text-main); color:white; padding:6px; border-radius:6px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+    </div>
+    <h1>API Explorer <span class="badge">v1.0</span></h1>
+  </header>
+
+  <div class="console-container">
+    
+    <div class="request-section">
+      <div style="margin-bottom:8px; font-weight:600; font-size:13px; color:var(--text-muted); text-transform:uppercase;">Request URL</div>
+      <div class="input-group">
+        <div class="method-badge">GET</div>
+        <div class="url-prefix">/api/disease?name=</div>
+        <input id="query" type="text" placeholder="diabetes" value="" onkeydown="if(event.key === 'Enter') searchDisease()">
+        <button id="sendBtn" class="send-btn" onclick="searchDisease()">
+          <span class="btn-text">Send</span>
+          <div class="loader" id="btnLoader"></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="response-section">
+      <div class="response-header">
+        <div class="status-indicator">
+          <div id="statusDot" class="status-dot"></div>
+          <span id="statusText">Ready</span>
+        </div>
+        <div class="action-links">
+          <span class="meta-info" id="metaInfo"></span>
+          <button class="copy-btn" onclick="copyResponse()">Copy JSON</button>
+        </div>
+      </div>
+
+      <div class="code-window">
+        <pre id="output"><div class="empty-state"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>Enter a disease name above to test the endpoint.</span></div></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    async function searchDisease() {
+      const nameInput = document.getElementById("query");
+      const name = nameInput.value.trim().toLowerCase();
+      const output = document.getElementById("output");
+      const statusText = document.getElementById("statusText");
+      const statusDot = document.getElementById("statusDot");
+      const btn = document.getElementById("sendBtn");
+      const loader = document.getElementById("btnLoader");
+      const btnText = document.querySelector(".btn-text");
+      const metaInfo = document.getElementById("metaInfo");
+
+      // Reset UI
+      statusDot.className = "status-dot";
+      statusText.innerText = "Processing...";
+      output.innerHTML = "";
+      
+      // Validation
+      if (!name) {
+        statusDot.className = "status-dot error";
+        statusText.innerText = "400 Bad Request";
+        output.innerHTML = syntaxHighlight({ error: "Missing parameter 'name'" });
+        return;
+      }
+
+      // UI Loading State
+      btn.disabled = true;
+      btnText.style.display = "none";
+      loader.style.display = "block";
+      const startTime = performance.now();
+
+      try {
+        const res = await fetch(`/disease?name=${name}`);
+        const endTime = performance.now();
+        const duration = (endTime - startTime).toFixed(0);
+
+        const data = await res.json();
+        
+        // Update Status UI
+        if (res.ok && !data.error) {
+          statusDot.className = "status-dot success";
+          statusText.innerText = `${res.status} OK`;
+          statusText.style.color = "var(--success)";
+        } else {
+          statusDot.className = "status-dot error";
+          statusText.innerText = data.error ? "404 Not Found" : `${res.status} Error`;
+          statusText.style.color = "var(--error)";
+        }
+
+        // Meta Info
+        const size = new TextEncoder().encode(JSON.stringify(data)).length;
+        metaInfo.innerText = `${duration}ms • ${size}B`;
+
+        // Render JSON
+        output.innerHTML = syntaxHighlight(data);
+
+      } catch (err) {
+        statusDot.className = "status-dot error";
+        statusText.innerText = "500 Network Error";
+        output.innerHTML = `<span style="color:#ef4444">// Check console for details\n// Server might be offline</span>\n\n${err.message}`;
+      } finally {
+        // Restore Button
+        btn.disabled = false;
+        btnText.style.display = "block";
+        loader.style.display = "none";
+      }
+    }
+
+    // JSON Syntax Highlighting Function
+    function syntaxHighlight(json) {
+      if (typeof json != 'string') {
+        json = JSON.stringify(json, undefined, 2);
+      }
+      json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = 'key';
+          } else {
+            cls = 'string';
+          }
+        } else if (/true|false/.test(match)) {
+          cls = 'boolean';
+        } else if (/null/.test(match)) {
+          cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+      });
+    }
+
+    function copyResponse() {
+      const output = document.getElementById("output");
+      // Create a temporary text element to copy raw text, not HTML
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = output.innerText;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextArea);
+      
+      const copyBtn = document.querySelector(".copy-btn");
+      const originalText = copyBtn.innerText;
+      copyBtn.innerText = "Copied!";
+      setTimeout(() => copyBtn.innerText = originalText, 2000);
+    }
+  </script>
+
+</body>
+</html>
