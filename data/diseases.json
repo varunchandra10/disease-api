@@ -1,0 +1,472 @@
+{
+    "asthma": {
+        "disease": "Asthma",
+        "causes": [
+            "Airway inflammation",
+            "Allergic reactions",
+            "Respiratory infections",
+            "Exposure to smoke or pollutants"
+        ],
+        "symptoms": [
+            "Shortness of breath",
+            "Wheezing",
+            "Coughing",
+            "Chest tightness"
+        ],
+        "prevention": [
+            "Avoid allergens and smoke",
+            "Control exposure to irritants",
+            "Manage sinus issues",
+            "Use prescribed inhalers regularly"
+        ]
+    },
+    "hypertension": {
+        "disease": "Hypertension",
+        "causes": [
+            "Genetics",
+            "Kidney disease",
+            "Thyroid disorders",
+            "Certain medications",
+            "Alcohol or drug use"
+        ],
+        "symptoms": [
+            "Often no symptoms",
+            "Headaches",
+            "Vision problems",
+            "Dizziness",
+            "Nausea in severe cases"
+        ],
+        "prevention": [
+            "Low-sodium diet",
+            "Regular physical activity",
+            "Avoid smoking and alcohol",
+            "Maintain healthy weight"
+        ]
+    },
+    "pneumonia_pneumocystis": {
+        "disease": "Pneumocystis Pneumonia",
+        "causes": [
+            "Infection by Pneumocystis jirovecii",
+            "Weak immune system (AIDS, steroids, immunosuppressants)"
+        ],
+        "symptoms": [
+            "Shortness of breath",
+            "Dry cough",
+            "Fever",
+            "Fatigue",
+            "Rapid breathing"
+        ],
+        "prevention": [
+            "Prophylactic antibiotics for high-risk patients",
+            "Avoiding immune suppression when possible",
+            "Early diagnosis and treatment"
+        ]
+    },
+    "diabetes": {
+        "disease": "Type 2 Diabetes",
+        "causes": [
+            "Insulin resistance",
+            "Genetic predisposition",
+            "Obesity",
+            "Physical inactivity"
+        ],
+        "symptoms": [
+            "Increased thirst",
+            "Frequent urination",
+            "Fatigue",
+            "Blurred vision"
+        ],
+        "prevention": [
+            "Healthy balanced diet",
+            "Regular exercise",
+            "Weight management"
+        ]
+    },
+    "copd": {
+        "disease": "Chronic Obstructive Pulmonary Disease",
+        "causes": [
+            "Cigarette smoking",
+            "Biomass fuel smoke exposure",
+            "Air pollution",
+            "Genetic susceptibility"
+        ],
+        "symptoms": [
+            "Chronic cough",
+            "Shortness of breath",
+            "Increased sputum production",
+            "Wheezing"
+        ],
+        "prevention": [
+            "Avoid tobacco smoke",
+            "Reduce exposure to pollutants",
+            "Influenza vaccination",
+            "Early smoking cessation"
+        ]
+    },
+    "tuberculosis": {
+        "disease": "Tuberculosis",
+        "causes": [
+            "Infection by Mycobacterium tuberculosis",
+            "Airborne person-to-person transmission"
+        ],
+        "symptoms": [
+            "Chronic cough",
+            "Fever",
+            "Night sweats",
+            "Weight loss",
+            "Fatigue"
+        ],
+        "prevention": [
+            "BCG vaccination",
+            "Avoid close exposure to infected individuals",
+            "Early diagnosis and treatment adherence"
+        ]
+    },
+    "hepatitis": {
+        "disease": "Viral Hepatitis",
+        "causes": [
+            "Hepatitis viruses (A, B, C, D, E)",
+            "Contaminated food or water (HAV)",
+            "Bloodborne transmission (HBV, HCV)"
+        ],
+        "symptoms": [
+            "Jaundice",
+            "Loss of appetite",
+            "Nausea and vomiting",
+            "Fatigue",
+            "Abdominal pain"
+        ],
+        "prevention": [
+            "Vaccination (Hepatitis A, B)",
+            "Avoid contaminated water or food",
+            "Safe blood-handling practices"
+        ]
+    },
+    "heart_failure": {
+        "disease": "Heart Failure",
+        "causes": [
+            "Coronary artery disease",
+            "Long-standing hypertension",
+            "Cardiomyopathy",
+            "Valve disorders"
+        ],
+        "symptoms": [
+            "Shortness of breath",
+            "Fatigue",
+            "Leg swelling",
+            "Difficulty lying flat",
+            "Rapid weight gain due to fluid retention"
+        ],
+        "prevention": [
+            "Control blood pressure",
+            "Healthy diet",
+            "Regular exercise",
+            "Limit alcohol and smoking"
+        ]
+    },
+    "stroke": {
+        "disease": "Stroke",
+        "causes": [
+            "Blocked brain artery (ischemic stroke)",
+            "Ruptured brain vessel (hemorrhagic stroke)",
+            "Uncontrolled hypertension",
+            "Clotting disorders"
+        ],
+        "symptoms": [
+            "Sudden weakness on one side",
+            "Speech difficulty",
+            "Facial droop",
+            "Loss of balance",
+            "Severe headache"
+        ],
+        "prevention": [
+            "Blood pressure control",
+            "Avoid smoking",
+            "Manage diabetes",
+            "Healthy diet and exercise"
+        ]
+    },
+    "kidney_disease": {
+        "disease": "Chronic Kidney Disease",
+        "causes": [
+            "Diabetes",
+            "Hypertension",
+            "Autoimmune diseases",
+            "Chronic infections"
+        ],
+        "symptoms": [
+            "Fatigue",
+            "Swelling in legs",
+            "Changes in urination",
+            "Nausea",
+            "Loss of appetite"
+        ],
+        "prevention": [
+            "Control blood glucose",
+            "Maintain normal blood pressure",
+            "Avoid nephrotoxic medications",
+            "Stay hydrated"
+        ]
+    },
+    "thyroid_disorders": {
+        "disease": "Thyroid Disorders",
+        "causes": [
+            "Autoimmune diseases (Graves, Hashimoto)",
+            "Iodine imbalance",
+            "Thyroid inflammation",
+            "Genetic factors"
+        ],
+        "symptoms": [
+            "Weight changes",
+            "Temperature intolerance",
+            "Fatigue",
+            "Heart rate changes",
+            "Hair loss"
+        ],
+        "prevention": [
+            "Adequate iodine intake",
+            "Regular thyroid screening",
+            "Treat autoimmune disease early"
+        ]
+    },
+    "gastritis": {
+        "disease": "Gastritis",
+        "causes": [
+            "Helicobacter pylori infection",
+            "Excess NSAID use",
+            "Alcohol consumption",
+            "Stress or illness"
+        ],
+        "symptoms": [
+            "Upper abdominal pain",
+            "Nausea",
+            "Vomiting",
+            "Loss of appetite"
+        ],
+        "prevention": [
+            "Limit NSAIDs",
+            "Reduce alcohol",
+            "Treat H. pylori",
+            "Avoid spicy or acidic food"
+        ]
+    },
+    "anemia": {
+        "disease": "Anemia",
+        "causes": [
+            "Iron deficiency",
+            "Chronic disease",
+            "Vitamin B12 deficiency",
+            "Blood loss"
+        ],
+        "symptoms": [
+            "Fatigue",
+            "Pale skin",
+            "Shortness of breath",
+            "Dizziness"
+        ],
+        "prevention": [
+            "Iron-rich diet",
+            "Treat chronic illnesses",
+            "Supplement B12 if needed"
+        ]
+    },
+    "tonsillitis": {
+        "disease": "Tonsillitis",
+        "causes": [
+            "Viral infections",
+            "Bacterial infections (Strep A)"
+        ],
+        "symptoms": [
+            "Sore throat",
+            "Difficulty swallowing",
+            "Fever",
+            "Swollen tonsils"
+        ],
+        "prevention": [
+            "Hand hygiene",
+            "Avoid sharing food/drinks",
+            "Treat strep throat promptly"
+        ]
+    },
+    "arthritis": {
+        "disease": "Arthritis",
+        "causes": [
+            "Joint wear-and-tear (osteoarthritis)",
+            "Autoimmune disease (rheumatoid arthritis)",
+            "Infections",
+            "Genetic factors"
+        ],
+        "symptoms": [
+            "Joint pain",
+            "Swelling",
+            "Stiffness",
+            "Reduced mobility"
+        ],
+        "prevention": [
+            "Maintain healthy weight",
+            "Avoid joint injuries",
+            "Regular exercise",
+            "Early treatment of autoimmune diseases"
+        ]
+    },
+    "pneumonia": {
+        "disease": "Pneumonia",
+        "causes": [
+            "Bacterial infection (Streptococcus pneumoniae, etc.)",
+            "Viral infections",
+            "Fungal infections in immunocompromised patients"
+        ],
+        "symptoms": [
+            "Fever",
+            "Cough with sputum",
+            "Shortness of breath",
+            "Chest pain"
+        ],
+        "prevention": [
+            "Pneumococcal vaccination",
+            "Influenza vaccination",
+            "Avoid smoking",
+            "Good hand hygiene"
+        ]
+    },
+    "covid19": {
+        "disease": "COVID-19",
+        "causes": [
+            "Infection by SARS-CoV-2 virus",
+            "Respiratory droplet transmission"
+        ],
+        "symptoms": [
+            "Fever",
+            "Dry cough",
+            "Fatigue",
+            "Loss of taste or smell",
+            "Shortness of breath"
+        ],
+        "prevention": [
+            "Vaccination",
+            "Mask use",
+            "Hand hygiene",
+            "Avoid crowded places"
+        ]
+    },
+    "migraine": {
+        "disease": "Migraine",
+        "causes": [
+            "Genetic predisposition",
+            "Hormonal changes",
+            "Stress",
+            "Certain foods or smells"
+        ],
+        "symptoms": [
+            "Throbbing headache",
+            "Light sensitivity",
+            "Nausea",
+            "Visual aura"
+        ],
+        "prevention": [
+            "Avoid known triggers",
+            "Regular sleep schedule",
+            "Stress management"
+        ]
+    },
+    "depression": {
+        "disease": "Major Depressive Disorder",
+        "causes": [
+            "Genetic factors",
+            "Chronic stress",
+            "Chemical imbalance in the brain",
+            "Trauma or major life events"
+        ],
+        "symptoms": [
+            "Persistent sadness",
+            "Loss of interest",
+            "Fatigue",
+            "Sleep problems",
+            "Feelings of worthlessness"
+        ],
+        "prevention": [
+            "Stress reduction",
+            "Regular exercise",
+            "Social support",
+            "Seeking early help"
+        ]
+    },
+    "anxiety": {
+        "disease": "Anxiety Disorder",
+        "causes": [
+            "Genetics",
+            "Chronic stress",
+            "Traumatic experiences"
+        ],
+        "symptoms": [
+            "Excessive worry",
+            "Restlessness",
+            "Fast heartbeat",
+            "Difficulty concentrating"
+        ],
+        "prevention": [
+            "Stress management",
+            "Mindfulness practices",
+            "Healthy sleep habits"
+        ]
+    },
+    "osteoporosis": {
+        "disease": "Osteoporosis",
+        "causes": [
+            "Aging",
+            "Hormonal changes",
+            "Calcium or vitamin D deficiency",
+            "Sedentary lifestyle"
+        ],
+        "symptoms": [
+            "Bone fractures",
+            "Loss of height",
+            "Back pain"
+        ],
+        "prevention": [
+            "Calcium and vitamin D intake",
+            "Weight-bearing exercise",
+            "Avoid smoking"
+        ]
+    },
+    "obesity": {
+        "disease": "Obesity",
+        "causes": [
+            "High-calorie diet",
+            "Lack of physical activity",
+            "Genetics",
+            "Hormonal imbalances"
+        ],
+        "symptoms": [
+            "Excess body weight",
+            "Fatigue",
+            "Breathlessness on exertion"
+        ],
+        "prevention": [
+            "Healthy diet",
+            "Regular exercise",
+            "Early lifestyle modification"
+        ]
+    },
+    "gerd": {
+        "disease": "Gastroesophageal Reflux Disease",
+        "causes": [
+            "Weak lower esophageal sphincter",
+            "Obesity",
+            "Hiatal hernia",
+            "Certain foods or alcohol"
+        ],
+        "symptoms": [
+            "Heartburn",
+            "Chest discomfort",
+            "Regurgitation",
+            "Difficulty swallowing"
+        ],
+        "prevention": [
+            "Avoid trigger foods",
+            "Eat smaller meals",
+            "Weight control",
+            "Avoid lying down after meals"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "disease_symptoms_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "type" : "module",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kola Varun Chandra",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
