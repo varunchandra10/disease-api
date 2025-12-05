@@ -1,23 +1,28 @@
-
 # Disease Information API
 
 A simple Node.js + Express API that returns medical information (causes, symptoms, prevention) for 23 diseases.  
-Data is stored in a separate `diseases.json` file for easy editing and expansion.
+Now includes a **professional UI** so users can search diseases easily without typing URLs.
+
+Live API + UI hosted on Render: **https://disease-api-8a3f.onrender.com**
 
 ---
 
 ## Features
-- Lightweight Express server  
-- Clean JSON-based data  
-- Easy to extend: just update `diseases.json`  
-- GET endpoint for disease queries  
-- Suitable for APIHub submission, portfolio, or internship task  
+- Express-based backend API  
+- Professional HTML UI for disease search  
+- JSON dataset stored in `diseases.json`  
+- Green (success) and Red (error) status messages  
+- Pretty JSON formatter  
+- Works perfectly on Render  
 
 ---
 
 ## Project Structure
 ```
 disease-api/
+│
+├── public/
+│   └── index.html
 │
 ├── data/
 │   └── diseases.json
@@ -28,91 +33,82 @@ disease-api/
 
 ---
 
-## Installation & Setup
+## Local Installation & Setup
 
 ### 1. Install dependencies
 ```
 npm install
 ```
 
-### 2. Run the server
+### 2. Start the server
 ```
 node server.js
 ```
 
-Default URL:
+### 3. Access locally
+- UI: http://localhost:3000  
+- API: http://localhost:3000/disease?name=diabetes  
+
+---
+
+## Live Deployment (Render)
+Your hosted API is live here: **https://disease-api-8a3f.onrender.com**
+
+### Example API Calls
 ```
-http://localhost:3000
+https://disease-api-8a3f.onrender.com/disease?name=asthma
+https://disease-api-8a3f.onrender.com/disease?name=copd
+https://disease-api-8a3f.onrender.com/disease?name=stroke
+```
+
+### Example Success Message
+```
+200 OK — Query retrieved successfully.
+```
+
+### Example Error Message
+```
+404 Not Found — Disease is not present in the database, stay tuned!
 ```
 
 ---
 
-## API Endpoint
-
-### **GET /disease?name={disease_name}**
-
-Returns medical information about the disease.
-
-#### Example Request:
-```
-GET http://localhost:3000/disease?name=asthma
-```
-
-#### Example Response:
-```json
-{
-  "disease": "Asthma",
-  "causes": [...],
-  "symptoms": [...],
-  "prevention": [...]
-}
-```
-
----
-
-## Supported Diseases (23 Total)
+## Supported Diseases (23)
 Asthma, Hypertension, Pneumocystis Pneumonia, Diabetes, COPD, Tuberculosis, Hepatitis,  
 Heart Failure, Stroke, Kidney Disease, Thyroid Disorders, Gastritis, Anemia, Tonsillitis,  
 Arthritis, Pneumonia, COVID-19, Migraine, Depression, Anxiety, Osteoporosis, Obesity, GERD  
 
 ---
 
-## Testing
-
-Use **Postman**, **Insomnia**, or your browser:
-
+## Testing Examples
 ```
-http://localhost:3000/disease?name=copd
-http://localhost:3000/disease?name=diabetes
-http://localhost:3000/disease?name=stroke
+https://disease-api-8a3f.onrender.com/disease?name=anemia
+https://disease-api-8a3f.onrender.com/disease?name=gerd
 ```
 
-If the disease exists, JSON is returned.  
-If not:
-
-```json
-{ "error": "Disease not found" }
+### Testing invalid disease:
+```
+https://disease-api-8a3f.onrender.com/disease?name=xyz
 ```
 
 ---
 
-## Deployment (Render)
-1. Push project to GitHub  
-2. Create a **Render Web Service**  
-3. Root Directory: project root  
-4. Build Command: (none needed)  
-5. Start Command:
+## Render Deployment Steps
+1. Push code to GitHub  
+2. Create a Render Web Service  
+3. Select "Node" environment  
+4. Use Start Command:
 ```
 node server.js
 ```
-6. Deploy & test the live API  
+5. Deploy and you're done!  
 
 ---
 
 ## License
-Free for personal, educational, or internship use.
+Free for educational, personal, and internship use.
 
 ---
 
 ## Credits
-All medical information is rewritten in simplified, original wording with ChatGPT assistance.
+Medical descriptions rewritten into simple, original wording with the help of ChatGPT.
